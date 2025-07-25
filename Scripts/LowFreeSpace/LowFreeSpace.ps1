@@ -281,7 +281,7 @@ function Test-ReportFileCreation {
         # Use FileStream for atomic write operation
         try {
             $stream = [System.IO.File]::OpenWrite($testFilePath)
-            $writer = [System.IO.StreamWriter]::new($stream)
+            $writer = New-Object System.IO.StreamWriter($stream)
             $writer.Write($testContent)
             $writer.Close()
         }
